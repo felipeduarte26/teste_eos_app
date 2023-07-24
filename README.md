@@ -113,7 +113,7 @@ Como regra, um microApp nunca deve se comunicar diretamente com outro MicroApp p
 Um Micro App pode ser adicionado através do comando:
 
 ```bash
-flutter create -t package login
+flutter create -t package task_manager
 ```
 
 As únicas dependências que o Micro App pode ter são:
