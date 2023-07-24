@@ -143,9 +143,10 @@ Deve conter um arquivo `analysis_options.yaml` com as regras de análise/formata
 seção "Padronização e boas práticas".
 
 ## **2. Setup**
-
-É essencial entrar em cada pasta do projeto e dar um flutter pub get para conseguir rodar o projeto
-
+É essencial entrar em cada pasta do projeto e executar o comando:
+```bash
+flutter pub get
+```
 ## **3. Padronização e boas práticas**
 
 Projeto configurado com o package [Flutter Lints](https://pub.dev/packages/flutter_lints).
