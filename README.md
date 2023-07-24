@@ -4,7 +4,7 @@ O projeto está organizado na seguinte estrutura:
 
 - **base_app:** Responsável por rodar a aplicação. Único que conhece todos os Micro Apps da aplicação.
 - **dependencies:** Mantém centralizadas todas as dependências dos Micro Apps.
-- **core:** Mantém tudo que é compartilhado entre os Micro Apps (Widgets, mixins, entities, infra, etc).
+- **Commons:** Mantém tudo que é compartilhado entre os Micro Apps (Widgets, mixins, entities, infra, etc).
 - **core:** Toda configuração que é compartilhada com os Micro Apps (Interface de um Micro App, base de classe)
 - Os demais packages que possuem o nome indicando uma feature são Micro Apps. Devem ser seguidas algumas regras desse tipo de package:
   1. Um Micro App **nunca** deve referenciar outro Micro App (Se a lógica for compartilhada, mover para o package core)
