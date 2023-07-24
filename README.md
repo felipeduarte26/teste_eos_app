@@ -26,15 +26,12 @@ Estrutura básica de pastas para os Micro Apps. Pode variar de acordo com a nece
 /domain
 /entities
 /usecases
-/errors
 /data
-/interfaces
 /repositories
-/infrastructure
 /presentation
-/interfaces
-/presenters
 /views
+/cubit
+/widgets
 <main>.dart
 ```
 
