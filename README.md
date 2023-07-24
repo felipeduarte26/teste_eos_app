@@ -174,4 +174,4 @@ Ex: o arquivo user_model contém a classe UserModel
 
 ### 4.1 Utilização dos temas
 
-O projeto está dísponivel com o lightTheme e darkTheme, pegando o tema padrão do Dispositivos móvel
+O projeto está dísponivel com o lightTheme e darkTheme, pegando o tema padrão do Dispositivel móvel
