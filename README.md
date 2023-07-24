@@ -143,9 +143,13 @@ Deve conter um arquivo `analysis_options.yaml` com as regras de análise/formata
 seção "Padronização e boas práticas".
 
 ## **2. Setup**
-É essencial entrar em cada pasta do projeto e executar o comando:
+É essencial entrar em cada pasta do projeto conforme a seguinte ordem e executar o comando:
 ```bash
-flutter pub get
+cd dependencies && flutter pub get
+cd core && flutter pub get
+cd commons && flutter pub get
+cd base_app && flutter pub get
+cd task_manager && flutter pub get
 ```
 ## **3. Padronização e boas práticas**
 
