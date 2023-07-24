@@ -102,7 +102,7 @@ Isso significa que a camada Main conhece todas as outras camadas e será a respo
 
 Nesse projeto, essa camada é montada com a utilização do package flutter_modular.
 
-Normalmente esse arquivo receberá o nome do Micro App que ele representa, por exemplo, para o Micro App de Onboarding existirá um arquivo `onboarding.dart` na pasta raiz do App.
+Normalmente esse arquivo receberá o nome do Micro App que ele representa, por exemplo, para o Micro App de taskManager existirá um arquivo `taskManager.dart` na pasta raiz do App.
 
 ### 1.2 Comunicação entre camadas
 
