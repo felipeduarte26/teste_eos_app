@@ -1,4 +1,3 @@
-import 'package:commons/commons.dart';
 import 'package:core/core.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:flutter/material.dart';
@@ -23,28 +22,12 @@ final class MyApp extends StatelessWidget with BaseApp {
     initializeDateFormatting('pt_BR', null);
 
     return MaterialApp(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
       onGenerateRoute: super.generateRoute,
       theme: themeLight,
       darkTheme: themeDark,
-      home: Scaffold(
-        appBar: AppBar(),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              child: const Text('Avançar'),
-              onPressed: () {
-                EventBusController()
-                    .emit<EventBusStates>(ShowTasksManagerState());
-              },
-            ),
-          ],
-        ),
-      ),
+      home: const HomeTasks(),
     );
   }
 
