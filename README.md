@@ -172,6 +172,6 @@ Ex: o arquivo get_user_usecase contém a classe GetUserUsecase
 Todos os arquivos model têm o sufixo "model" no nome do arquivo e no nome da classe
 Ex: o arquivo user_model contém a classe UserModel
 
-### 4.2 Utilização dos temas
+### 4.1 Utilização dos temas
 
-O projeto está dísponivel com o lightTheme e darkTheme
+O projeto está dísponivel com o lightTheme e darkTheme, pegando o tema padrão do Dispositivos móvel
