@@ -2,6 +2,7 @@ import 'package:commons/commons.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../commons/commons.dart';
 import '../../../../route.dart';
 import '../../../domain/entities/task_entity.dart';
 import '../../shared/cubit/cubit.dart';
@@ -28,8 +29,22 @@ class _HomeTasksState extends State<HomeTasks> {
         builder: (context, state) => switch (state) {
           LoadTaskState _ => const Center(child: CircularProgressIndicator()),
           EmptyTaskState _ => _buildScaffold(
-              const Center(
-                child: Text('<Você não tem Lista de Tarefas cadastradas>'),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Image.asset(
+                    Assets.emptyImage,
+                    package: 'task_manager',
+                  ),
+                  const Flexible(
+                    child: Text(
+                      'Não existe tarefas cadastradas',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                ],
               ),
             ),
           final TaskListState state => _buildBody(data: state.data),
@@ -105,6 +120,7 @@ class _HomeTasksState extends State<HomeTasks> {
           ),
         ),
         appBar: AppBar(
+          centerTitle: true,
           title: const Text('Lista de tarefas'),
         ),
         body: body,

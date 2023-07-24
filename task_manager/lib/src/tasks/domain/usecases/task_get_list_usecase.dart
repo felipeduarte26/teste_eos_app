@@ -11,5 +11,11 @@ final class GetList implements IGetList {
   GetList({required ITaskRepository repository}) : _repository = repository;
 
   @override
-  Future<List<TaskEntity>> call() => _repository.getList();
+  Future<List<TaskEntity>> call() async {
+    final data = await _repository.getList();
+    data.sort(
+      (a, b) => a.dueDate.compareTo(b.dueDate),
+    );
+    return data;
+  }
 }
