@@ -143,6 +143,7 @@ Deve conter um arquivo `analysis_options.yaml` com as regras de análise/formata
 seção "Padronização e boas práticas".
 
 ## **2. Setup**
+A pasta .vsceode contém o arquivo launche.json com as configurações necessarias para rodar o projeto.
 É essencial entrar em cada pasta do projeto conforme a seguinte ordem e executar o comando:
 ```bash
 cd dependencies && flutter pub get
