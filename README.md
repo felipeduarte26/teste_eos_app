@@ -7,7 +7,7 @@ O projeto está organizado na seguinte estrutura:
 - **Commons:** Mantém tudo que é compartilhado entre os Micro Apps (Widgets, mixins, entities, infra, etc).
 - **core:** Toda configuração que é compartilhada com os Micro Apps (Interface de um Micro App, base de classe)
 - Os demais packages que possuem o nome indicando uma feature são Micro Apps. Devem ser seguidas algumas regras desse tipo de package:
-  1. Um Micro App **nunca** deve referenciar outro Micro App (Se a lógica for compartilhada, mover para o package core)
+  1. Um Micro App **nunca** deve referenciar outro Micro App (Se a lógica for compartilhada, mover para o package core ou ultilizar a prática de Event Bus)
   2. Seguir em todos os Micro Apps a mesma arquitetura e estrutura de pastas
   3. Não adicionar dependências externas nesses packages (Sempre adicionar no package dependencies)
 
