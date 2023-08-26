@@ -27,19 +27,19 @@ jobs:
           channel: 'stable'
       
       - name: Run flutter clean
-        run: flutter clean    
+        run: cd baseapp && flutter clean    
      
       - name: Install dependencies
-        run: flutter pub get    
+        run: cd baseapp && flutter pub get    
 
       - name: Run flutter analyze
-        run: flutter analyze
+        run: cd baseapp && flutter analyze
       
       - name: Dart format
-        run: dart fix --dry-run --set-exit-if-changed-lib/
+        run: cd baseapp && dart fix --dry-run --set-exit-if-changed-lib/
      
       - name: Dart apply format
-        run:  dart fix --apply --set-exit-if-changed-lib/
+        run:  cd baseapp && dart fix --apply --set-exit-if-changed-lib/
   
   build_ios_debug:
     runs-on: macos-latest
@@ -54,9 +54,9 @@ jobs:
       - uses: subosito/flutter-action@v2
         with: 
           channel: 'stable'    
-      - run: flutter clean
-      - run: flutter pub get
-      - run: flutter build ios --release --no-codesign      
+      - run: cd baseapp && flutter clean
+      - run: cd baseapp && flutter pub get
+      - run: cd baseapp && flutter build ios --release --no-codesign      
   
   build_ios_release:
     runs-on: macos-latest
@@ -71,9 +71,9 @@ jobs:
       - uses: subosito/flutter-action@v2
         with: 
           channel: 'stable'    
-      - run: flutter clean
-      - run: flutter pub get
-      - run: flutter build ios --release --no-codesign
+      - run: cd baseapp && flutter clean
+      - run: cd baseapp && flutter pub get
+      - run: cd baseapp && flutter build ios --release --no-codesign
 
   build_appbundle_debug:
     runs-on: ubuntu-latest
@@ -88,9 +88,9 @@ jobs:
       - uses: subosito/flutter-action@v2
         with: 
           channel: 'stable'    
-      - run: flutter clean
-      - run: flutter pub get
-      - run: flutter build appbundle --debug
+      - run: cd baseapp && flutter clean
+      - run: cd baseapp && flutter pub get
+      - run: cd baseapp && flutter build appbundle --debug
       - name: Upload appbundle
         uses: actions/upload-artifact@v3
         with: 
