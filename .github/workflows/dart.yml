@@ -28,9 +28,17 @@ jobs:
       
       - name: Run flutter clean
         run: cd base_app && flutter clean    
+      - run: cd commons && flutter clean    
+      - run: cd core && flutter clean    
+      - run: cd dependencies && flutter clean    
+      - run: cd task_manager && flutter clean    
      
       - name: Install dependencies
         run: cd base_app && flutter pub get    
+      - run: cd commons && flutter pub get    
+      - run: cd core && flutter pub get    
+      - run: cd dependencies && flutter pub get    
+      - run: cd task_manager && flutter pub get    
 
       - name: Run flutter analyze
         run: flutter analyze
