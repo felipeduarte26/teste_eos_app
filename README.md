@@ -1,4 +1,4 @@
-# App - Arquitetura de MicroFront-End com Clean Architecture + SOLID
+# Teste Rhitmo App - Arquitetura de MicroFront-End com Clean Architecture + SOLID
 
 O projeto está organizado na seguinte estrutura:
 
