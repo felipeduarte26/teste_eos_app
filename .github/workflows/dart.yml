@@ -46,14 +46,6 @@ jobs:
         with:
           channel: "stable"
 
-      - name: Clean Flutter projects
-        run: |
-          cd base_app && flutter clean
-          cd ../packages/commons && flutter clean
-          cd ../core && flutter clean
-          cd ../dependencies && flutter clean
-          cd ../task_manager && flutter clean
-
       - name: Run flutter analyze
         run: flutter analyze
 
@@ -76,9 +68,8 @@ jobs:
         with:
           channel: "stable"
 
-      - name: Clean and build iOS Debug
+      - name: build iOS Debug
         run: |
-          cd base_app && flutter clean
           cd base_app && flutter pub get
           cd base_app && flutter build ios --debug --no-codesign
 
@@ -95,9 +86,8 @@ jobs:
         with:
           channel: "stable"
 
-      - name: Clean and build Android Debug
+      - name: build Android Debug
         run: |
-          cd base_app && flutter clean
           cd base_app && flutter pub get
           cd base_app && flutter build appbundle --debug
 
