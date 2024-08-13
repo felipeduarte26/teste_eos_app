@@ -7,100 +7,121 @@ name: Dart
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
-  code_analyze:
+  setup:
     runs-on: ubuntu-latest
+    outputs:
+      flutter_version: ${{ steps.flutter.outputs.version }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'oracle'
-          java-version: '17'
-      
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
-        with: 
-          channel: 'stable'
-      
-      - name: Run flutter clean
-        run: cd base_app && flutter clean    
-      - run: cd commons && flutter clean    
-      - run: cd core && flutter clean    
-      - run: cd dependencies && flutter clean    
-      - run: cd task_manager && flutter clean    
-     
+        with:
+          channel: "stable"
+        id: flutter
+
       - name: Install dependencies
-        run: cd base_app && flutter pub get    
-      - run: cd commons && flutter pub get    
-      - run: cd core && flutter pub get    
-      - run: cd dependencies && flutter pub get    
-      - run: cd task_manager && flutter pub get    
+        run: |
+          cd base_app && flutter pub get
+          cd ../packages/commons && flutter pub get
+          cd ../packages/core && flutter pub get
+          cd ../packages/dependencies && flutter pub get
+          cd ../packages/task_manager && flutter pub get
+
+  code_analyze:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+
+      - name: Clean Flutter projects
+        run: |
+          cd base_app && flutter clean
+          cd ../packages/commons && flutter clean
+          cd ../packages/core && flutter clean
+          cd ../packages/dependencies && flutter clean
+          cd ../packages/task_manager && flutter clean
 
       - name: Run flutter analyze
         run: flutter analyze
-      
-      - name: Dart format
-        run:  dart fix --dry-run --set-exit-if-changed-lib/
-     
+
+      - name: Dart format check
+        run: dart fix --dry-run --set-exit-if-changed
+
       - name: Dart apply format
-        run:  dart fix --apply --set-exit-if-changed-lib/
-  
+        run: dart fix --apply --set-exit-if-changed
+
   build_ios_debug:
     runs-on: macos-latest
-    name: build Flutter (IOS Debug)
-    needs: [code_analyze]
+    name: Build Flutter (iOS Debug)
+    needs: code_analyze
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
         with:
-          distribution: 'oracle'
-          java-version: '17'
-      - uses: subosito/flutter-action@v2
-        with: 
-          channel: 'stable'    
-      - run: cd base_app && flutter clean
-      - run: cd base_app && flutter pub get
-      - run: cd base_app && flutter build ios --release --no-codesign      
-  
+          channel: "stable"
+
+      - name: Clean and build iOS Debug
+        run: |
+          cd base_app && flutter clean
+          cd base_app && flutter pub get
+          cd base_app && flutter build ios --debug --no-codesign
+
   build_ios_release:
     runs-on: macos-latest
-    name: build Flutter (IOS Release)
+    name: Build Flutter (iOS Release)
     needs: [code_analyze, build_ios_debug]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
         with:
-          distribution: 'oracle'
-          java-version: '17'
-      - uses: subosito/flutter-action@v2
-        with: 
-          channel: 'stable'    
-      - run: cd base_app && flutter clean
-      - run: cd base_app && flutter pub get
-      - run: cd base_app && flutter build ios --release --no-codesign
+          channel: "stable"
+
+      - name: Clean and build iOS Release
+        run: |
+          cd base_app && flutter clean
+          cd base_app && flutter pub get
+          cd base_app && flutter build ios --release --no-codesign
 
   build_appbundle_debug:
     runs-on: ubuntu-latest
-    name: build Flutter (Android Debug)
-    needs: [code_analyze]
+    name: Build Flutter (Android Debug)
+    needs: code_analyze
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
         with:
-          distribution: 'oracle'
-          java-version: '17'
-      - uses: subosito/flutter-action@v2
-        with: 
-          channel: 'stable'    
-      - run: cd base_app && flutter clean
-      - run: cd base_app && flutter pub get
-      - run: cd base_app && flutter build appbundle --debug
-      - name: Upload appbundle
+          channel: "stable"
+
+      - name: Clean and build Android Debug
+        run: |
+          cd base_app && flutter clean
+          cd base_app && flutter pub get
+          cd base_app && flutter build appbundle --debug
+
+      - name: Upload App Bundle
         uses: actions/upload-artifact@v3
-        with: 
-          name: appbundle
-          path: build/app/outputs/bundle/release/app-release.aab
+        with:
+          name: appbundle-debug
+          path: base_app/build/app/outputs/bundle/debug/app-debug.aab

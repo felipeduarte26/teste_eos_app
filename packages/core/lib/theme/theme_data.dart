@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'color_scheme.dart';
-
 final themeLight = ThemeData(
-  colorScheme: lightColorScheme,
+  colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
   useMaterial3: true,
 );
 
 final themeDark = ThemeData(
-  colorScheme: darkColorScheme,
+  colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
   useMaterial3: true,
 );

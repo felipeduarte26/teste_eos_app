@@ -5,8 +5,8 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "Flutter Dev",
         "request": "launch",
+        "name": "Flutter Dev",
         "type": "dart",
         "flutterMode": "debug",
         "program": "base_app/lib/main.dart",
