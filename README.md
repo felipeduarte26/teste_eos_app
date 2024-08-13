@@ -1,4 +1,4 @@
-# Teste EOS App - Arquitetura de MicroFront-end com Clean Architecture + SOLID
+# App - Arquitetura de MicroFront-end com Clean Architecture + SOLID
 
 O projeto está organizado na seguinte estrutura:
 
