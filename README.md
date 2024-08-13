@@ -135,7 +135,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^1.0.4
+  flutter_lints: ^4.0.0
 ```
 
 Cada Micro App deve seguir uma padronização:
@@ -143,15 +143,19 @@ Deve conter um arquivo `analysis_options.yaml` com as regras de análise/formata
 seção "Padronização e boas práticas".
 
 ## **2. Setup**
-A pasta .vscode contém o arquivo launch.json com as configurações necessarias para rodar o projeto.
-Na primeira execução do projeto, é essencial entrar em cada pasta do projeto conforme a seguinte ordem e executar o comando para baixar as dependencias do projeto:
+
+A pasta .vscode contém o arquivo launch.json com as configurações necessárias para rodar o projeto.
+Na primeira execução do projeto, é essencial entrar em cada pasta do projeto conforme a seguinte ordem e executar o comando para baixar as dependências do projeto:
+
 ```bash
-cd dependencies && flutter pub get
-cd core && flutter pub get
-cd commons && flutter pub get
-cd base_app && flutter pub get
-cd task_manager && flutter pub get
+cd packages
+cd dependencies && flutter clean && flutter pub get
+cd core && flutter clean &&  flutter pub get
+cd commons && flutter clean &&  flutter pub get
+cd base_app && flutter clean &&  flutter pub get
+cd task_manager && flutter clean &&  flutter pub get
 ```
+
 ## **3. Padronização e boas práticas**
 
 Projeto configurado com o package [Flutter Lints](https://pub.dev/packages/flutter_lints).
