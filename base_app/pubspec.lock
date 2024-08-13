@@ -52,14 +52,14 @@ packages:
   commons:
     dependency: "direct main"
     description:
-      path: "../commons"
+      path: "../packages/commons"
       relative: true
     source: path
     version: "0.0.1"
   core:
     dependency: "direct main"
     description:
-      path: "../core"
+      path: "../packages/core"
       relative: true
     source: path
     version: "0.0.1"
@@ -82,7 +82,7 @@ packages:
   dependencies:
     dependency: "direct main"
     description:
-      path: "../dependencies"
+      path: "../packages/dependencies"
       relative: true
     source: path
     version: "0.0.1"
@@ -360,7 +360,7 @@ packages:
   task_manager:
     dependency: "direct main"
     description:
-      path: "../task_manager"
+      path: "../packages/task_manager"
       relative: true
     source: path
     version: "0.0.1"

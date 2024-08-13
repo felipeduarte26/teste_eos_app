@@ -14,13 +14,13 @@ dependencies:
   flutter:
     sdk: flutter
   core:  
-    path: ../core
+    path: ../packages/core
   dependencies:
-    path: ../dependencies
+    path: ../packages/dependencies
   commons:
-    path: ../commons  
+    path: ../packages/commons  
   task_manager:
-    path: ../task_manager  
+    path: ../packages/task_manager  
 
   cupertino_icons: ^1.0.8
 
