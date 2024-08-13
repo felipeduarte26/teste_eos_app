@@ -17,7 +17,7 @@ Abaixo seguem informações sobre a estrutura do projeto, setup e outras conside
 
 O projeto é dividido em packages, onde o package implementa um Micro App, que segue a Clean Architecture.
 
-![](./.images/clean.jpg)
+![](./.images/clean_arch.jpg)
 
 Estrutura básica de pastas para os Micro Apps. Pode variar de acordo com a necessidade. Esta estrutura deve ser espelhada nos testes:
 
